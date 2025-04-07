@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #4facfe, #00f2fe);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .bus-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .bus {
+            position: absolute;
+            bottom: 20%;
+            left: -200px;
+            width: 150px;
+            transition: transform 2s ease-in-out, left 2s ease-in-out;
+        }
+
+        .bus.stop {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .bus.speed-off {
+            left: 110%;
+        }
+    </style>
+</head>
+<body>
+    <div class="bus-container">
+        <img src="../assets/bus1.jpg" alt="Bus" class="bus" id="animatedBus">
+    </div>
+
+    <script>
+        const bus = document.getElementById('animatedBus');
+
+        // Move the bus to the center
+        setTimeout(() => {
+            bus.classList.add('stop');
+        }, 1000);
+
+        // Speed off after stopping
+        setTimeout(() => {
+            bus.classList.remove('stop');
+            bus.classList.add('speed-off');
+        }, 4000);
+
+        // Redirect to the main page after animation
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 6000);
+    </script>
+</body>
+</html>

@@ -34,7 +34,7 @@ try {
     ]);
 
     // Send email notification to admin
-    $to = "admin@expressbus.com";
+    $to = "joshneid07@gmail.com";
     $subject = "New Contact Form Submission: {$data['subject']}";
     $message = "Name: {$data['name']}\n";
     $message .= "Email: {$data['email']}\n";

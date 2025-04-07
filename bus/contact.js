@@ -22,29 +22,42 @@ document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.getElementById("contact-form");
 
   if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
+    contactForm.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       // Validate form
       if (validateContactForm()) {
-        // Show success message
-        const formContainer = contactForm.parentElement;
-        const successMessage = document.createElement("div");
-        successMessage.className = "success-message";
-        successMessage.innerHTML = `
-                    <i class="fas fa-check-circle"></i>
-                    <p>Thank you for your message! We will get back to you shortly.</p>
-                `;
+        const formData = new FormData(contactForm);
 
-        // Replace form with success message
-        contactForm.style.display = "none";
-        formContainer.appendChild(successMessage);
+        try {
+          const response = await fetch('http://localhost/dashboard/expessbus/contact.php', {
+            method: 'POST',
+            body: formData,
+          });
 
-        // Reset form (in case user navigates back)
-        contactForm.reset();
+          const result = await response.json();
 
-        // Scroll to the success message
-        successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+          if (result.success) {
+            // Show success message
+            const formContainer = contactForm.parentElement;
+            const successMessage = document.createElement("div");
+            successMessage.className = "success-message";
+            successMessage.innerHTML = `
+                            <i class="fas fa-check-circle"></i>
+                            <p>${result.message}</p>
+                        `;
+
+            // Replace form with success message
+            contactForm.style.display = "none";
+            formContainer.appendChild(successMessage);
+            contactForm.reset();
+          } else {
+            alert(result.error || "An error occurred. Please try again.");
+          }
+        } catch (error) {
+          console.error("Error submitting the form:", error);
+          alert("An error occurred. Please try again.");
+        }
       }
     });
   }
