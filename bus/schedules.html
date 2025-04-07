@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedules - Express Bus Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Express<span>Bus</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="schedules.html" class="active">Schedules</a></li>
+                    <li><a href="booking.html">Book</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Bus Schedules</h1>
+                <p>Find the perfect time for your journey</p>
+            </div>
+        </section>
+        
+        <section class="schedule-finder">
+            <div class="container">
+                <div class="booking-card">
+                    <h2>Search Schedules</h2>
+                    <form id="schedule-form">
+                        <div class="form-group">
+                            <label for="schedule-from"><i class="fas fa-map-marker-alt"></i> From</label>
+                            <select name="schedule-from" id="schedule-from">
+                                <option value="">Select Departure</option>
+                                <option value="nairobi">Nairobi</option>
+                                <option value="mombasa">Mombasa</option>
+                                <option value="kisumu">Kisumu</option>
+                                <option value="nakuru">Nakuru</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="schedule-to"><i class="fas fa-map-marker"></i> To</label>
+                            <select name="schedule-to" id="schedule-to">
+                                <option value="">Select Destination</option>
+                                <option value="nairobi">Nairobi</option>
+                                <option value="mombasa">Mombasa</option>
+                                <option value="kisumu">Kisumu</option>
+                                <option value="nakuru">Nakuru</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="schedule-date"><i class="far fa-calendar-alt"></i> Date</label>
+                            <input type="date" name="schedule-date" id="schedule-date">
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Find Schedules</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <section class="schedule-results">
+            <div class="container">
+                <h2>Available Routes</h2>
+                <div class="schedule-table">
+                    <div class="schedule-header">
+                        <div class="schedule-cell">Route</div>
+                        <div class="schedule-cell">Departure</div>
+                        <div class="schedule-cell">Arrival</div>
+                        <div class="schedule-cell">Duration</div>
+                        <div class="schedule-cell">Price</div>
+                        <div class="schedule-cell">Action</div>
+                    </div>
+                    
+                    <div class="schedule-row">
+                        <div class="schedule-cell">
+                            <div class="route">Nairobi to Mombasa</div>
+                            <div class="bus-type">Express Luxury</div>
+                        </div>
+                        <div class="schedule-cell">
+                            <div class="time">07:00 AM</div>
+                            <div class="date">Daily</div>
+                        </div>
+                        <div class="schedule-cell">
+                            <div class="time">12:30 PM</div>
+                            <div class="date">Same Day</div>
+                        </div>
+                        <div class="schedule-cell">5h 30m</div>
+                        <div class="schedule-cell">KES 1,500</div>
+                        <div class="schedule-cell">
+                            <a href="booking.html" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-row">
+                        <div class="schedule-cell">
+                            <div class="route">Nairobi to Mombasa</div>
+                            <div class="bus-type">Standard</div>
+                        </div>
+                        <div class="schedule-cell">
+                            <div class="time">09:00 AM</div>
+                            <div class="date">Daily</div>
+                        </div>
+                        <div class="schedule-cell">
+                            <div class="time">03:00 PM</div>
+                            <div class="date">Same Day</div>
+                        </div>
+                        <div class="schedule-cell">6h 00m</div>
+                        <div class="schedule-cell">KES 1,200</div>
+                        <div class="schedule-cell">
+                            <a href="booking.html" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-row">
+                        <div class="schedule-cell">
+                            <div class="route">Nairobi to Mombasa</div>
+                            <div class="bus-type">Night Express</div>
+                        </div>
+                        <div class="schedule-cell">
+                            <div class="time">08:00 PM</div>
+                            <div class="date">Daily</div>
+                        </div>
+                        <div class="schedule-cell">
+                            <div class="time">06:00 AM</div>
+                            <div class="date">Next Day</div>
+                        </div>
+                        <div class="schedule-cell">10h 00m</div>
+                        <div class="schedule-cell">KES 1,300</div>
+                        <div class="schedule-cell">
+                            <a href="booking.html" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-row">
+                        <div class="schedule-cell">
+                            <div class="route">Nairobi to Kisumu</div>
+                            <div class="bus-type">Express</div>
+                        </div>
+                        <div class="schedule-cell">
+                            <div class="time">08:00 AM</div>
+                            <div class="date">Daily</div>
+                        </div>
+                        <div class="schedule-cell">
+                            <div class="time">02:00 PM</div>
+                            <div class="date">Same Day</div>
+                        </div>
+                        <div class="schedule-cell">6h 00m</div>
+                        <div class="schedule-cell">KES 1,100</div>
+                        <div class="schedule-cell">
+                            <a href="booking.html" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">Express<span>Bus</span></div>
+                <p>&copy; 2025 Express Bus Services. All rights reserved.</p>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
