@@ -72,16 +72,8 @@
         <section class="schedule-results">
             <div class="container">
                 <h2>Available Routes</h2>
-                <div class="schedule-table" id="scheduleTable">
-                    <div class="schedule-header">
-                        <div class="schedule-cell">Route</div>
-                        <div class="schedule-cell">Departure</div>
-                        <div class="schedule-cell">Arrival</div>
-                        <div class="schedule-cell">Duration</div>
-                        <div class="schedule-cell">Price</div>
-                        <div class="schedule-cell">Action</div>
-                    </div>
-                    <!-- Dynamic rows will be inserted here -->
+                <div id="schedule-table" class="schedule-table">
+                    <!-- Dynamic content will be inserted here -->
                 </div>
             </div>
         </section>
@@ -102,52 +94,5 @@
     </footer>
     
     <script src="script.js"></script>
-    <script>
-        document.getElementById('schedule-form').addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            const from = document.getElementById('schedule-from').value;
-            const to = document.getElementById('schedule-to').value;
-            const date = document.getElementById('schedule-date').value;
-
-            const response = await fetch('http://localhost/ExpressBus/api/get_routes.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ from, to, date })
-            });
-
-            const routes = await response.json();
-            const scheduleTable = document.getElementById('scheduleTable');
-
-            // Clear existing rows
-            scheduleTable.querySelectorAll('.schedule-row').forEach(row => row.remove());
-
-            // Populate table with fetched routes
-            routes.forEach(route => {
-                const row = document.createElement('div');
-                row.classList.add('schedule-row');
-                row.innerHTML = `
-                    <div class="schedule-cell">
-                        <div class="route">${route.from} to ${route.to}</div>
-                        <div class="bus-type">${route.bus_type}</div>
-                    </div>
-                    <div class="schedule-cell">
-                        <div class="time">${route.departure_time}</div>
-                        <div class="date">${route.departure_date}</div>
-                    </div>
-                    <div class="schedule-cell">
-                        <div class="time">${route.arrival_time}</div>
-                        <div class="date">${route.arrival_date}</div>
-                    </div>
-                    <div class="schedule-cell">${route.duration}</div>
-                    <div class="schedule-cell">KES ${route.price}</div>
-                    <div class="schedule-cell">
-                        <a href="booking.html?route_id=${route.id}" class="btn-secondary">Book Now</a>
-                    </div>
-                `;
-                scheduleTable.appendChild(row);
-            });
-        });
-    </script>
 </body>
 </html>

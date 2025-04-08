@@ -45,7 +45,7 @@ class MpesaPayment {
                 'PartyA' => $phone,
                 'PartyB' => '174379',
                 'PhoneNumber' => $phone,
-                'CallBackURL' => 'https://yourwebsite.com/bus/mpesa_callback.php',
+                'CallBackURL' => 'https://expressbus.com/bus/mpesa_callback.php',
                 'AccountReference' => $bookingId,
                 'TransactionDesc' => 'Bus Ticket Payment'
             ];

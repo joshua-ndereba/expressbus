@@ -286,7 +286,57 @@
 
                             <div class="button-group">
                                 <button type="button" class="btn-secondary prev-step">Back</button>
-                                <button type="submit" class="btn-primary">Complete Booking</button>
+                                <button type="submit" class="btn-primary" id="complete-booking">Complete Booking</button>
+                            </div>
+                        </div>
+
+                        <div class="form-step" id="step5" style="display: none;">
+                            <h3>Booking Invoice</h3>
+                            <div class="invoice-container" id="invoice-container">
+                                <img src="../assets/logo.png" alt="Express Bus Logo" class="receipt-logo">
+                                <h4>Express Bus Services - E-Ticket</h4>
+                                <table class="invoice-table">
+                                    <tr>
+                                        <th>Booking Reference</th>
+                                        <td id="invoice-booking-id"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Passenger</th>
+                                        <td id="invoice-passenger-name"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>From</th>
+                                        <td id="invoice-from"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>To</th>
+                                        <td id="invoice-to"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date</th>
+                                        <td id="invoice-date"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Departure</th>
+                                        <td id="invoice-departure"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Arrival</th>
+                                        <td id="invoice-arrival"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Seats</th>
+                                        <td id="invoice-seats"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Total Paid</th>
+                                        <td id="invoice-total"></td>
+                                    </tr>
+                                </table>
+                                <p>Thank you for choosing Express Bus Services. Please keep this ticket as proof of your booking. Have a safe journey!</p>
+                            </div>
+                            <div class="button-group">
+                                <button type="button" class="btn-primary" id="download-invoice">Download Invoice</button>
                             </div>
                         </div>
                     </form>
@@ -311,6 +361,71 @@
 
     <script src="script.js"></script>
     <script src="booking.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const bookingForm = document.getElementById('booking-route-form');
+            const completeBookingButton = document.getElementById('complete-booking');
+            const step4 = document.getElementById('step4');
+            const step5 = document.getElementById('step5');
+
+            completeBookingButton.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Simulate booking completion and invoice generation
+                const bookingDetails = {
+                    bookingId: 'EXP12345',
+                    passengerName: document.getElementById('fullname').value,
+                    from: document.getElementById('booking-from').value,
+                    to: document.getElementById('booking-to').value,
+                    date: document.getElementById('booking-date').value,
+                    departure: '07:00 AM',
+                    arrival: '12:30 PM',
+                    seats: '2A',
+                    total: 'KES 1,500'
+                };
+
+                // Populate invoice details
+                document.getElementById('invoice-booking-id').textContent = bookingDetails.bookingId;
+                document.getElementById('invoice-passenger-name').textContent = bookingDetails.passengerName;
+                document.getElementById('invoice-from').textContent = bookingDetails.from;
+                document.getElementById('invoice-to').textContent = bookingDetails.to;
+                document.getElementById('invoice-date').textContent = bookingDetails.date;
+                document.getElementById('invoice-departure').textContent = bookingDetails.departure;
+                document.getElementById('invoice-arrival').textContent = bookingDetails.arrival;
+                document.getElementById('invoice-seats').textContent = bookingDetails.seats;
+                document.getElementById('invoice-total').textContent = bookingDetails.total;
+
+                // Hide step 4 and show step 5
+                step4.style.display = 'none';
+                step5.style.display = 'block';
+            });
+
+            // Download invoice as a PDF
+            document.getElementById('download-invoice').addEventListener('click', function () {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                // Add content to the PDF
+                doc.setFontSize(16);
+                doc.text('Express Bus Services - E-Ticket', 10, 10);
+                doc.setFontSize(12);
+                doc.text(`Booking Reference: ${document.getElementById('invoice-booking-id').textContent}`, 10, 20);
+                doc.text(`Passenger: ${document.getElementById('invoice-passenger-name').textContent}`, 10, 30);
+                doc.text(`From: ${document.getElementById('invoice-from').textContent}`, 10, 40);
+                doc.text(`To: ${document.getElementById('invoice-to').textContent}`, 10, 50);
+                doc.text(`Date: ${document.getElementById('invoice-date').textContent}`, 10, 60);
+                doc.text(`Departure: ${document.getElementById('invoice-departure').textContent}`, 10, 70);
+                doc.text(`Arrival: ${document.getElementById('invoice-arrival').textContent}`, 10, 80);
+                doc.text(`Seats: ${document.getElementById('invoice-seats').textContent}`, 10, 90);
+                doc.text(`Total Paid: ${document.getElementById('invoice-total').textContent}`, 10, 100);
+                doc.text('Thank you for choosing Express Bus Services. Please keep this ticket as proof of your booking. Have a safe journey!', 10, 120);
+
+                // Save the PDF
+                doc.save('Booking_Invoice.pdf');
+            });
+        });
+    </script>
 </body>
 
 </html>

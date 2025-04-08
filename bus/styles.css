@@ -19,11 +19,14 @@
     box-sizing: border-box;
 }
 
+/* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-color);
     line-height: 1.6;
     background-color: var(--light-bg);
+    background: url('../assets/background.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 .container {
@@ -35,14 +38,13 @@ body {
 
 /* Header Styles */
 header {
-    background-color: var(--bg-color);
-    box-shadow: var(--box-shadow);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 1rem 0;
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
     z-index: 1000;
-    padding: 1rem 0;
 }
 
 header .container {
@@ -51,34 +53,46 @@ header .container {
     align-items: center;
 }
 
-.logo {
+header .logo {
+    display: flex;
+    align-items: center;
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--text-color);
 }
 
-.logo span {
+header .logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%; /* Make the logo rounded */
+    object-fit: cover; /* Ensure the image fits within the rounded shape */
+}
+
+header .logo span {
     color: var(--primary-color);
 }
 
-nav ul {
-    display: flex;
+header nav ul {
     list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
 }
 
-nav ul li {
-    margin-left: 2rem;
+header nav ul li {
+    margin-left: 20px;
 }
 
-nav ul li a {
-    color: var(--text-color);
+header nav ul li a {
+    color: #fff;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: var(--primary-color);
+header nav ul li a:hover {
+    color: var(--accent-color);
 }
 
 /* Active Navigation Link */
@@ -114,21 +128,22 @@ main {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
-    color: var(--light-text);
-    padding: 4rem 0;
+    background: url('../assets/hero.jpg') no-repeat center center;
+    background-size: cover;
+    color: #fff;
     text-align: center;
+    padding: 5rem 0;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
     font-weight: 600;
 }
 
 .hero p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     max-width: 600px;
     margin: 0 auto;
     opacity: 0.9;
@@ -140,7 +155,7 @@ main {
 }
 
 .booking-card {
-    background-color: var(--bg-color);
+    background: rgba(255, 255, 255, 0.9);
     padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -252,11 +267,13 @@ select:focus, input:focus {
 }
 
 .feature-card {
-    background-color: var(--bg-color);
+    background: url('../assets/feature-bg.jpg') no-repeat center center;
+    background-size: cover;
+    color: #fff;
     padding: 2rem;
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
     text-align: center;
+    box-shadow: var(--box-shadow);
     transition: transform 0.3s ease;
 }
 
@@ -266,7 +283,6 @@ select:focus, input:focus {
 
 .feature-card i {
     font-size: 2.5rem;
-    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
@@ -276,14 +292,15 @@ select:focus, input:focus {
 }
 
 .feature-card p {
-    color: #666;
     font-size: 0.9rem;
 }
 
 /* Footer */
 footer {
-    background-color: var(--bg-color);
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
     padding: 2rem 0;
+    text-align: center;
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
 }
 
@@ -305,19 +322,20 @@ footer p {
     font-size: 0.9rem;
 }
 
-.social-icons {
+social-icons {
     display: flex;
     gap: 1rem;
 }
 
-.social-icons a {
-    color: #666;
+footer .social-icons a {
+    color: #fff;
+    margin: 0 10px;
     font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
-social-icons a:hover {
-    color: var(--primary-color);
+footer .social-icons a:hover {
+    color: var(--accent-color);
 }
 
 /* Page Header */
@@ -787,7 +805,7 @@ social-icons a:hover {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #e0e0e0;
-    border-radius: var(--border-radius);
+    border-radius: var (--border-radius);
     resize: vertical;
     font-family: 'Poppins', sans-serif;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -872,6 +890,44 @@ social-icons a:hover {
 .faq-item.active .faq-answer {
     max-height: 200px;
     padding: 0 1.5rem 1.5rem;
+}
+
+/* Ad Section */
+.ad-section {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.ad-section img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.ad-section p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* Booking Receipt Logo */
+.receipt-logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 /* Responsive Contact Page */

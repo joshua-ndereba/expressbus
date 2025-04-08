@@ -12,7 +12,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Query to fetch routes
-    $stmt = $pdo->query("SELECT from_location, to_location, bus_type, departure_time, departure_date, arrival_time, arrival_date, duration, price FROM routes");
+    $stmt = $pdo->query("SELECT from_location, to_location, bus_type, departure_time, arrival_time, price FROM routes");
     $routes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Return the routes as JSON
