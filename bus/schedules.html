@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedules - Express Bus Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Express<span>Bus</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="schedules.html" class="active">Schedules</a></li>
+                    <li><a href="booking.html">Book</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Bus Schedules</h1>
+                <p>Find the perfect time for your journey</p>
+            </div>
+        </section>
+        
+        <section class="schedule-finder">
+            <div class="container">
+                <div class="booking-card">
+                    <h2>Search Schedules</h2>
+                    <form id="schedule-form">
+                        <div class="form-group">
+                            <label for="schedule-from"><i class="fas fa-map-marker-alt"></i> From</label>
+                            <select name="schedule-from" id="schedule-from">
+                                <option value="">Select Departure</option>
+                                <option value="nairobi">Nairobi</option>
+                                <option value="mombasa">Mombasa</option>
+                                <option value="kisumu">Kisumu</option>
+                                <option value="nakuru">Nakuru</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="schedule-to"><i class="fas fa-map-marker"></i> To</label>
+                            <select name="schedule-to" id="schedule-to">
+                                <option value="">Select Destination</option>
+                                <option value="nairobi">Nairobi</option>
+                                <option value="mombasa">Mombasa</option>
+                                <option value="kisumu">Kisumu</option>
+                                <option value="nakuru">Nakuru</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="schedule-date"><i class="far fa-calendar-alt"></i> Date</label>
+                            <input type="date" name="schedule-date" id="schedule-date">
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Find Schedules</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <section class="schedule-results">
+            <div class="container">
+                <h2>Available Routes</h2>
+                <div class="schedule-table">
+                    <div class="schedule-header">
+                        <div class="schedule-cell">Route</div>
+                        <div class="schedule-cell">Departure</div>
+                        <div class="schedule-cell">Arrival</div>
+                        <div class="schedule-cell">Duration</div>
+                        <div class="schedule-cell">Price</div>
+                        <div class="schedule-cell">Action</div>
+                    </div>
+                    <!-- Hardcoded schedule rows -->
+                    <div class="schedule-row">
+                        <div class="schedule-cell">Nairobi to Mombasa</div>
+                        <div class="schedule-cell">8:00 AM, June 15, 2024</div>
+                        <div class="schedule-cell">2:00 PM, June 15, 2024</div>
+                        <div class="schedule-cell">6 hours</div>
+                        <div class="schedule-cell">KES 1,500</div>
+                        <div class="schedule-cell">
+                            <a href="booking.html?route_id=1" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-cell">Mombasa to Kisumu</div>
+                        <div class="schedule-cell">9:00 AM, June 16, 2024</div>
+                        <div class="schedule-cell">9:00 PM, June 16, 2024</div>
+                        <div class="schedule-cell">12 hours</div>
+                        <div class="schedule-cell">KES 2,000</div>
+                        <div class="schedule-cell">
+                            <a href="booking.html?route_id=2" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-cell">Kisumu to Nakuru</div>
+                        <div class="schedule-cell">7:00 AM, June 17, 2024</div>
+                        <div class="schedule-cell">11:00 AM, June 17, 2024</div>
+                        <div class="schedule-cell">4 hours</div>
+                        <div class="schedule-cell">KES 1,200</div>
+                        <div class="schedule-cell">
+                            <a href="booking.html?route_id=3" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-cell">Nairobi to Eldoret</div>
+                        <div class="schedule-cell">6:00 AM, June 18, 2024</div>
+                        <div class="schedule-cell">10:00 AM, June 18, 2024</div>
+                        <div class="schedule-cell">4 hours</div>
+                        <div class="schedule-cell">KES 1,300</div>
+                        <div class="schedule-cell">
+                            <a href="booking.html?route_id=4" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-cell">Nakuru to Malindi</div>
+                        <div class="schedule-cell">7:00 PM, June 19, 2024</div>
+                        <div class="schedule-cell">7:00 AM, June 20, 2024</div>
+                        <div class="schedule-cell">12 hours</div>
+                        <div class="schedule-cell">KES 2,500</div>
+                        <div class="schedule-cell">
+                            <a href="booking.html?route_id=5" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-cell">Eldoret to Kisumu</div>
+                        <div class="schedule-cell">9:00 AM, June 20, 2024</div>
+                        <div class="schedule-cell">11:00 AM, June 20, 2024</div>
+                        <div class="schedule-cell">2 hours</div>
+                        <div class="schedule-cell">KES 800</div>
+                        <div class="schedule-cell">
+                            <a href="booking.html?route_id=6" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-cell">Nairobi to Garissa</div>
+                        <div class="schedule-cell">5:00 AM, June 21, 2024</div>
+                        <div class="schedule-cell">11:00 AM, June 21, 2024</div>
+                        <div class="schedule-cell">6 hours</div>
+                        <div class="schedule-cell">KES 1,700</div>
+                        <div class="schedule-cell">
+                            <a href="booking.html?route_id=7" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">Express<span>Bus</span></div>
+                <p>&copy; 2025 Express Bus Services. All rights reserved.</p>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('schedule-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get search criteria
+            const from = document.getElementById('schedule-from').value.toLowerCase();
+            const to = document.getElementById('schedule-to').value.toLowerCase();
+            const date = document.getElementById('schedule-date').value;
+
+            // Hardcoded schedules
+            const schedules = [
+                { route: 'Nairobi to Mombasa', departure: '8:00 AM, June 15, 2024', arrival: '2:00 PM, June 15, 2024', duration: '6 hours', price: 'KES 1,500' },
+                { route: 'Mombasa to Kisumu', departure: '9:00 AM, June 16, 2024', arrival: '9:00 PM, June 16, 2024', duration: '12 hours', price: 'KES 2,000' },
+                { route: 'Kisumu to Nakuru', departure: '7:00 AM, June 17, 2024', arrival: '11:00 AM, June 17, 2024', duration: '4 hours', price: 'KES 1,200' },
+                { route: 'Nairobi to Eldoret', departure: '6:00 AM, June 18, 2024', arrival: '10:00 AM, June 18, 2024', duration: '4 hours', price: 'KES 1,300' },
+                { route: 'Nakuru to Malindi', departure: '7:00 PM, June 19, 2024', arrival: '7:00 AM, June 20, 2024', duration: '12 hours', price: 'KES 2,500' },
+                { route: 'Eldoret to Kisumu', departure: '9:00 AM, June 20, 2024', arrival: '11:00 AM, June 20, 2024', duration: '2 hours', price: 'KES 800' },
+                { route: 'Nairobi to Garissa', departure: '5:00 AM, June 21, 2024', arrival: '11:00 AM, June 21, 2024', duration: '6 hours', price: 'KES 1,700' }
+            ];
+
+            // Filter schedules based on search criteria
+            const filteredSchedules = schedules.filter(schedule => {
+                const route = schedule.route.toLowerCase();
+                const matchesFrom = from ? route.includes(from) : true;
+                const matchesTo = to ? route.includes(to) : true;
+                const matchesDate = date ? schedule.departure.includes(new Date(date).toDateString()) : true;
+                return matchesFrom && matchesTo && matchesDate;
+            });
+
+            // Display filtered schedules
+            const scheduleTable = document.querySelector('.schedule-table');
+            const scheduleRows = scheduleTable.querySelectorAll('.schedule-row');
+            scheduleRows.forEach(row => row.remove()); // Clear existing rows
+
+            if (filteredSchedules.length > 0) {
+                filteredSchedules.forEach(schedule => {
+                    const row = document.createElement('div');
+                    row.classList.add('schedule-row');
+                    row.innerHTML = `
+                        <div class="schedule-cell">${schedule.route}</div>
+                        <div class="schedule-cell">${schedule.departure}</div>
+                        <div class="schedule-cell">${schedule.arrival}</div>
+                        <div class="schedule-cell">${schedule.duration}</div>
+                        <div class="schedule-cell">${schedule.price}</div>
+                        <div class="schedule-cell">
+                            <a href="booking.html" class="btn-secondary">Book Now</a>
+                        </div>
+                    `;
+                    scheduleTable.appendChild(row);
+                });
+            } else {
+                const noResultsRow = document.createElement('div');
+                noResultsRow.classList.add('schedule-row');
+                noResultsRow.innerHTML = `
+                    <div class="schedule-cell" colspan="6">No schedules found matching your criteria.</div>
+                `;
+                scheduleTable.appendChild(noResultsRow);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Route</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Express<span>Bus</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="schedules.html">Schedules</a></li>
+                    <li><a href="booking.html">Book</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Add a New Route</h1>
+                <p>Fill in the details below to add a new route to the system.</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-form-container">
+                    <form action="http://localhost/dashboard/expressbus/add_route.php" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <label for="from_location"><i class="fas fa-map-marker-alt"></i> From</label>
+                            <input type="text" id="from_location" name="from_location" placeholder="Enter departure location" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="to_location"><i class="fas fa-map-marker"></i> To</label>
+                            <input type="text" id="to_location" name="to_location" placeholder="Enter destination" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="bus_type"><i class="fas fa-bus"></i> Bus Type</label>
+                            <input type="text" id="bus_type" name="bus_type" placeholder="Enter bus type (e.g., Express, Standard)" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="departure_time"><i class="far fa-clock"></i> Departure Time</label>
+                            <input type="time" id="departure_time" name="departure_time" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="arrival_time"><i class="far fa-clock"></i> Arrival Time</label>
+                            <input type="time" id="arrival_time" name="arrival_time" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="price"><i class="fas fa-money-bill-wave"></i> Price</label>
+                            <input type="number" id="price" name="price" placeholder="Enter price in KES" required>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Add Route</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">Express<span>Bus</span></div>
+                <p>&copy; 2025 Express Bus Services. All rights reserved.</p>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>
